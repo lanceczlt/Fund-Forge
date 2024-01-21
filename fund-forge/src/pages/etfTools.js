@@ -76,8 +76,16 @@ function Copyright(props) {
     }),
   );
   
-  // TODO remove, this demo shouldn't need to reset the theme.
-  const defaultTheme = createTheme();
+  const defaultTheme = createTheme({
+    palette: {
+      primary: {
+        main: '#223628', // Set your desired primary color
+      },
+      secondary: {
+        main: '#FF4081', // Set your desired secondary color
+      },
+    },
+  });
 
 export default function EtfTools() {
     const [open, setOpen] = React.useState(true);
