@@ -81,8 +81,16 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
   }),
 );
 
-// TODO remove, this demo shouldn't need to reset the theme.
-const defaultTheme = createTheme();
+const defaultTheme = createTheme({
+  palette: {
+    primary: {
+      main: '#223628', // Set your desired primary color
+    },
+    secondary: {
+      main: '#FF4081', // Set your desired secondary color
+    },
+  },
+});
 
 export default function Dashboard() {
   const [open, setOpen] = React.useState(true);
@@ -95,8 +103,9 @@ export default function Dashboard() {
       <Box sx={{ display: 'flex' }}>
         <CssBaseline />
         <AppBar position="absolute" open={open}>
-          <Toolbar
+          <Toolbar 
             sx={{
+              height:'5',
               pr: '24px', // keep right padding when drawer closed
             }}
           >
@@ -122,9 +131,7 @@ export default function Dashboard() {
               Dashboard
             </Typography>
             <IconButton color="inherit">
-              <Badge badgeContent={4} color="secondary">
-                <NotificationsIcon />
-              </Badge>
+              
             </IconButton>
           </Toolbar>
         </AppBar>
